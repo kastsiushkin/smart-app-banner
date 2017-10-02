@@ -10,7 +10,7 @@ var ua = require('ua-parser-js');
 /* global navigator */
 var userLangAttribute = navigator.language || navigator.userLanguage || navigator.browserLanguage;
 var userLang = userLangAttribute.slice(-2) || 'us';
-var root = doc && doc.documentElement;
+var root = doc && doc.getElementById('content');
 
 // platform dependent functionality
 var mixins = {
