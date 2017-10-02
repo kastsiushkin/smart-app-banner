@@ -10,7 +10,6 @@ var ua = require('ua-parser-js');
 /* global navigator */
 var userLangAttribute = navigator.language || navigator.userLanguage || navigator.browserLanguage;
 var userLang = userLangAttribute.slice(-2) || 'us';
-var root = doc && doc.getElementById('content');
 
 // platform dependent functionality
 var mixins = {
@@ -56,7 +55,8 @@ var SmartBanner = function (options) {
 		},
 		theme: '', // put platform type ('ios', 'android', etc.) here to force single theme on all device
 		icon: '', // full path to icon image if not using website icon image
-		force: '' // put platform type ('ios', 'android', etc.) here for emulation
+		force: '', // put platform type ('ios', 'android', etc.) here for emulation
+		rootId: ''
 	}, options || {});
 
 	if (this.options.force) {
@@ -67,6 +67,12 @@ var SmartBanner = function (options) {
 		this.type = 'ios';
 	} else if (agent.os.name === 'Android') {
 		this.type = 'android';
+	}
+	
+	if (this.options.rootId) {
+		this.root = doc && doc.getElementById(this.options.rootId);
+	} else {
+		this.root = doc && doc.documentElement;
 	}
 
 	// Don't show banner on ANY of the following conditions:
@@ -146,10 +152,10 @@ SmartBanner.prototype = {
 		q('.smartbanner-close', sb).addEventListener('click', this.close.bind(this), false);
 	},
 	hide: function () {
-		root.classList.remove('smartbanner-show');
+		this.root.classList.remove('smartbanner-show');
 	},
 	show: function () {
-		root.classList.add('smartbanner-show');
+		this.root.classList.add('smartbanner-show');
 	},
 	close: function () {
 		this.hide();

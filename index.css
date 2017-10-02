@@ -2,7 +2,8 @@
 	margin-top: 80px;
 }
 
-.smartbanner-show .smartbanner {
+.smartbanner-show .smartbanner,
+.smartbanner-show ~ .smartbanner {
 	display: block;
 }
 
