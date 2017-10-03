@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/kudago/smart-app-banner.git"
+    "url": "git://github.com/kastsiushkin/smart-app-banner"
   },
   "keywords": [
     "smart",
@@ -33,9 +33,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kudago/smart-app-banner/issues"
+    "url": "https://github.com/kastsiushkin/smart-app-banner/issues"
   },
-  "homepage": "https://github.com/kudago/smart-app-banner",
+  "homepage": "https://github.com/kastsiushkin/smart-app-banner",
   "dependencies": {
     "component-query": "^0.0.3",
     "js-cookie": "^2.1.3",
